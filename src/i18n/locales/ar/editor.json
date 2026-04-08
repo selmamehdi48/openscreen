@@ -1,0 +1,41 @@
+{
+	"newRecording": {
+		"title": "العودة إلى المُسجل",
+		"description": "تم حفظ جلستك الحالية.",
+		"cancel": "إلغاء",
+		"confirm": "تأكيد"
+	},
+	"errors": {
+		"noVideoLoaded": "لم يتم تحميل أي فيديو",
+		"videoNotReady": "الفيديو غير جاهز",
+		"unableToDetermineSourcePath": "غير قادر على تحديد مسار الفيديو المصدر",
+		"failedToSaveGif": "فشل حفظ GIF",
+		"gifExportFailed": "فشل تصدير GIF",
+		"failedToSaveVideo": "فشل حفظ الفيديو",
+		"exportFailed": "فشل التصدير",
+		"exportFailedWithError": "فشل التصدير: {{error}}",
+		"failedToSaveExport": "فشل حفظ التصدير",
+		"failedToSaveExportedVideo": "فشل حفظ الفيديو المصدّر",
+		"failedToRevealInFolder": "خطأ في الكشف عن المجلد: {{error}}"
+	},
+	"export": {
+		"canceled": "تم إلغاء التصدير",
+		"exportedSuccessfully": "تم تصدير {{format}} بنجاح"
+	},
+	"project": {
+		"saveCanceled": "تم إلغاء حفظ المشروع",
+		"failedToSave": "فشل حفظ المشروع",
+		"savedTo": "تم حفظ المشروع في {{path}}",
+		"failedToLoad": "فشل تحميل المشروع",
+		"invalidFormat": "تنسيق ملف المشروع غير صالح",
+		"loadedFrom": "تم تحميل المشروع من {{path}}"
+	},
+	"recording": {
+		"failedCameraAccess": "فشل طلب الوصول إلى الكاميرا.",
+		"cameraBlocked": "الوصول إلى الكاميرا محظور. يرجى تمكينه في إعدادات النظام لاستخدام كاميرا الويب.",
+		"systemAudioUnavailable": "صوت النظام غير متوفر. يتم التسجيل بدون صوت النظام.",
+		"microphoneDenied": "تم رفض الوصول إلى الميكروفون. سيستمر التسجيل بدون صوت.",
+		"cameraDenied": "تم رفض الوصول إلى الكاميرا. سيستمر التسجيل بدون كاميرا الويب.",
+		"permissionDenied": "تم رفض إذن التسجيل. يرجى السماح بتسجيل الشاشة."
+	}
+}

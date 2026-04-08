@@ -1,0 +1,162 @@
+{
+	"zoom": {
+		"level": "مستوى التكبير",
+		"selectRegion": "حدد منطقة تكبير للتعديل",
+		"deleteZoom": "حذف التكبير",
+		"focusMode": {
+			"title": "وضع التركيز",
+			"manual": "يدوي",
+			"auto": "تلقائي",
+			"autoDescription": "تتبع الكاميرا موضع المؤشر المسجل"
+		}
+	},
+	"speed": {
+		"playbackSpeed": "سرعة التشغيل",
+		"selectRegion": "حدد منطقة سرعة للتعديل",
+		"deleteRegion": "حذف منطقة السرعة",
+		"customPlaybackSpeed": "سرعة تشغيل مخصصة",
+		"maxSpeedError": "لا يمكن أن تزيد السرعة عن 16×"
+	},
+	"trim": {
+		"deleteRegion": "حذف منطقة القص"
+	},
+	"layout": {
+		"title": "التخطيط",
+		"preset": "إعداد مسبق",
+		"selectPreset": "تحديد إعداد مسبق",
+		"pictureInPicture": "صورة داخل صورة",
+		"verticalStack": "تكديس عمودي",
+		"webcamShape": "شكل الكاميرا",
+		"webcamSize": "حجم كاميرا الويب"
+	},
+	"effects": {
+		"title": "تأثيرات الفيديو",
+		"blurBg": "طمس الخلفية",
+		"motionBlur": "ضبابية الحركة",
+		"off": "إيقاف",
+		"shadow": "ظل",
+		"roundness": "دائري",
+		"padding": "تباعد داخلي"
+	},
+	"background": {
+		"title": "الخلفية",
+		"image": "صورة",
+		"color": "لون",
+		"gradient": "تدرج",
+		"uploadCustom": "رفع مخصص",
+		"gradientLabel": "تدرج {{index}}"
+	},
+	"crop": {
+		"title": "اقتطاع",
+		"cropVideo": "اقتطاع الفيديو",
+		"dragInstruction": "اسحب من كل جانب لتعديل منطقة الاقتطاع",
+		"ratio": "النسبة",
+		"free": "حر",
+		"done": "تم",
+		"lockAspectRatio": "قفل نسبة العرض إلى الارتفاع",
+		"unlockAspectRatio": "إلغاء قفل نسبة العرض إلى الارتفاع"
+	},
+	"exportFormat": {
+		"mp4": "MP4",
+		"gif": "GIF",
+		"mp4Video": "فيديو MP4",
+		"mp4Description": "ملف فيديو عالي الجودة",
+		"gifAnimation": "رسم متحرك GIF",
+		"gifDescription": "صورة متحركة للمشاركة"
+	},
+	"exportQuality": {
+		"title": "جودة التصدير",
+		"low": "منخفضة",
+		"medium": "متوسطة",
+		"high": "عالية"
+	},
+	"gifSettings": {
+		"frameRate": "معدل إطارات GIF",
+		"size": "حجم GIF",
+		"loop": "تكرار GIF"
+	},
+	"project": {
+		"save": "حفظ المشروع",
+		"load": "تحميل المشروع"
+	},
+	"export": {
+		"videoButton": "تصدير فيديو",
+		"gifButton": "تصدير GIF",
+		"chooseSaveLocation": "اختيار موقع الحفظ"
+	},
+	"links": {
+		"reportBug": "الإبلاغ عن خطأ",
+		"starOnGithub": "تمييز بنجمة على GitHub"
+	},
+	"imageUpload": {
+		"invalidFileType": "نوع ملف غير صالح",
+		"jpgOnly": "يرجى تحميل ملف صورة JPG أو JPEG.",
+		"uploadSuccess": "تم رفع الصورة المخصصة بنجاح!",
+		"failedToUpload": "فشل رفع الصورة",
+		"errorReading": "حدث خطأ أثناء قراءة الملف."
+	},
+	"annotation": {
+		"title": "إعدادات التعليقات التوضيحية",
+		"active": "نشط",
+		"typeText": "نص",
+		"typeImage": "صورة",
+		"typeArrow": "سهم",
+		"textContent": "محتوى النص",
+		"textPlaceholder": "أدخل النص الخاص بك...",
+		"fontStyle": "نمط الخط",
+		"selectStyle": "تحديد النمط",
+		"size": "الحجم",
+		"customFonts": "خطوط مخصصة",
+		"textColor": "لون النص",
+		"background": "الخلفية",
+		"none": "بلا",
+		"color": "اللون",
+		"clearBackground": "مسح الخلفية",
+		"uploadImage": "رفع صورة",
+		"supportedFormats": "التنسيقات المدعومة: JPG، PNG، GIF، WebP",
+		"arrowDirection": "اتجاه السهم",
+		"strokeWidth": "عرض الخط: {{width}} بكسل",
+		"arrowColor": "لون السهم",
+		"deleteAnnotation": "حذف التعليق التوضيحي",
+		"shortcutsAndTips": "مفاتيح الاختصار ونصائح",
+		"tipMovePlayhead": "حرّك مؤشر التشغيل إلى قسم تعليق توضيحي متداخل وحدد عنصرًا.",
+		"tipTabCycle": "استخدم Tab للتنقل بين العناصر المتداخلة.",
+		"tipShiftTabCycle": "استخدم Shift+Tab للتنقل للخلف.",
+		"invalidImageType": "نوع الملف غير صالح",
+		"imageFormatsOnly": "يرجى تحميل ملف صورة JPG أو PNG أو GIF أو WebP.",
+		"imageUploadSuccess": "تم رفع الصورة بنجاح!",
+		"failedImageUpload": "فشل رفع الصورة"
+	},
+	"fontStyles": {
+		"classic": "كلاسيكي",
+		"editor": "محرر",
+		"strong": "قوي",
+		"typewriter": "آلة كاتبة",
+		"deco": "ديكور",
+		"simple": "بسيط",
+		"modern": "عصري",
+		"clean": "نظيف"
+	},
+	"customFont": {
+		"dialogTitle": "إضافة خط من Google",
+		"urlLabel": "رابط استيراد خطوط Google",
+		"urlPlaceholder": "https://fonts.googleapis.com/css2?family=Roboto&display=swap",
+		"urlHelp": "احصل على هذا من خطوط Google: حدد خطًا ← انقر على \"الحصول على الخط (Get font)\" ← انسخ عنوان URL لـ @import",
+		"nameLabel": "اسم العرض",
+		"namePlaceholder": "خطي المخصص",
+		"nameHelp": "تحدد هذه الخانة طريقة ظهور الخط في قائمة اختيار الخطوط",
+		"addButton": "إضافة الخط",
+		"addingButton": "جارٍ الإضافة...",
+		"errorEmptyUrl": "يرجى إدخال رابط استيراد خطوط Google",
+		"errorInvalidUrl": "يرجى إدخال عنوان URL صحيح لخطوط Google",
+		"errorEmptyName": "يرجى إدخال اسم الخط",
+		"errorExtractFailed": "تعذر استخراج عائلة الخط من عنوان URL",
+		"successMessage": "تمت إضافة الخط \"{{fontName}}\" بنجاح",
+		"failedToAdd": "فشل إضافة الخط",
+		"errorTimeout": "استغرق تحميل الخط وقتًا أطول من اللازم. يُرجى التحقق من الرابط والمحاولة مرة أخرى.",
+		"errorLoadFailed": "تعذر تحميل الخط. يُرجى التحقق من صحة رابط خطوط Google."
+	},
+	"language": {
+		"title": "اللغة"
+	}
+}

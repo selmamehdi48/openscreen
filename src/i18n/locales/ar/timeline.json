@@ -1,0 +1,50 @@
+{
+	"buttons": {
+		"addZoom": "إضافة تكبير (Z)",
+		"suggestZooms": "اقتراح تكبير من المؤشر",
+		"addTrim": "إضافة قص (T)",
+		"addAnnotation": "إضافة تعليق توضيحي (A)",
+		"addSpeed": "إضافة سرعة (S)"
+	},
+	"hints": {
+		"pressZoom": "اضغط Z لإضافة تكبير",
+		"pressTrim": "اضغط T لإضافة قص",
+		"pressAnnotation": "اضغط A لإضافة تعليق توضيحي",
+		"pressSpeed": "اضغط S لإضافة سرعة"
+	},
+	"labels": {
+		"pan": "تحريك",
+		"zoom": "تكبير",
+		"zoomItem": "تكبير {{index}}",
+		"trimItem": "قص {{index}}",
+		"speedItem": "سرعة {{index}}",
+		"annotationItem": "تعليق توضيحي",
+		"imageItem": "صورة",
+		"emptyText": "نص فارغ"
+	},
+	"emptyState": {
+		"noVideo": "لم يتم تحميل فيديو",
+		"dragAndDrop": "يُرجى سحب وإفلات فيديو لبدء التعديل"
+	},
+	"errors": {
+		"cannotPlaceZoom": "لا يمكن وضع التكبير هنا",
+		"zoomExistsAtLocation": "التكبير موجود بالفعل في هذا الموقع أو المساحة المتوفرة غير كافية.",
+		"zoomSuggestionUnavailable": "معالج اقتراح التكبير غير متوفر",
+		"noCursorTelemetry": "لا تتوفر بيانات عن المؤشر",
+		"noCursorTelemetryDescription": "قم بتسجيل الشاشة أولاً لإنشاء اقتراحات بناءً على المؤشر.",
+		"noUsableTelemetry": "لا توجد بيانات مؤشر قابلة للاستخدام",
+		"noUsableTelemetryDescription": "لا يتضمن التسجيل بيانات حركة مؤشر كافية.",
+		"noDwellMoments": "لم يتم العثور على لحظات توقف واضحة للمؤشر",
+		"noDwellMomentsDescription": "جرّب تسجيلاً به توقفات أبطأ للمؤشر على الإجراءات المهمة.",
+		"noAutoZoomSlots": "لا توجد مساحات تكبير تلقائي متاحة",
+		"noAutoZoomSlotsDescription": "تتداخل نقاط التوقف المكتشفة مع مناطق التكبير الحالية.",
+		"cannotPlaceTrim": "لا يمكن وضع القص هنا",
+		"trimExistsAtLocation": "القص موجود بالفعل في هذا الموقع أو المساحة المتوفرة غير كافية.",
+		"cannotPlaceSpeed": "لا يمكن وضع السرعة هنا",
+		"speedExistsAtLocation": "تأثير السرعة موجود بالفعل في هذا الموقع أو المساحة المتوفرة غير كافية."
+	},
+	"success": {
+		"addedZoomSuggestions": "تمت إضافة {{count}} اقتراح تكبير بناءً على المؤشر",
+		"addedZoomSuggestionsPlural": "تمت إضافة {{count}} اقتراحات تكبير بناءً على المؤشر"
+	}
+}

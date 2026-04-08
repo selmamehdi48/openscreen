@@ -1,0 +1,37 @@
+{
+	"tooltips": {
+		"hideHUD": "إخفاء شاشة العرض",
+		"closeApp": "إغلاق التطبيق",
+		"restartRecording": "إعادة بدء التسجيل",
+		"cancelRecording": "إلغاء التسجيل",
+		"pauseRecording": "إيقاف التسجيل مؤقتًا",
+		"resumeRecording": "استئناف التسجيل",
+		"openVideoFile": "فتح ملف فيديو",
+		"openProject": "فتح مشروع"
+	},
+	"audio": {
+		"enableSystemAudio": "تمكين صوت النظام",
+		"disableSystemAudio": "تعطيل صوت النظام",
+		"enableMicrophone": "تمكين الميكروفون",
+		"disableMicrophone": "تعطيل الميكروفون",
+		"defaultMicrophone": "الميكروفون الافتراضي"
+	},
+	"webcam": {
+		"enableWebcam": "تمكين كاميرا الويب",
+		"disableWebcam": "تعطيل كاميرا الويب",
+		"defaultCamera": "الكاميرا الافتراضية",
+		"searching": "جارٍ البحث...",
+		"noneFound": "لم يتم العثور على كاميرا",
+		"unavailable": "الكاميرا غير متوفرة"
+	},
+	"sourceSelector": {
+		"loading": "جارٍ تحميل المصادر...",
+		"screens": "الشاشات ({{count}})",
+		"windows": "النوافذ ({{count}})",
+		"defaultSourceName": "الشاشة"
+	},
+	"recording": {
+		"selectSource": "يرجى تحديد مصدر للتسجيل"
+	},
+	"language": "اللغة"
+}
