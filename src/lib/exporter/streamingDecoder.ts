@@ -67,9 +67,9 @@ type EarlyDecodeEndCheck = {
 	streamDurationSec?: number;
 };
 
-const EARLY_DECODE_END_THRESHOLD_SEC = 1;
-const METADATA_TAIL_TOLERANCE_SEC = 1.5;
-const STREAM_DURATION_MATCH_TOLERANCE_SEC = 0.25;
+const EARLY_DECODE_END_THRESHOLD_SEC = 2.5;
+const METADATA_TAIL_TOLERANCE_SEC = 2.5;
+const STREAM_DURATION_MATCH_TOLERANCE_SEC = 0.5;
 
 export function shouldFailDecodeEndedEarly({
 	cancelled,
@@ -502,8 +502,10 @@ export class StreamingVideoDecoder {
 		) {
 			const decodedAtLabel =
 				lastDecodedFrameSec === null ? "no decoded frame" : `${lastDecodedFrameSec.toFixed(3)}s`;
+			const gapSec = lastDecodedFrameSec !== null ? requiredEndSec - lastDecodedFrameSec : 0;
 			throw new Error(
-				`Video decode ended early at ${decodedAtLabel} (needed ${requiredEndSec.toFixed(3)}s).`,
+				`Video decode ended early at ${decodedAtLabel} (needed ${requiredEndSec.toFixed(3)}s, gap: ${gapSec.toFixed(3)}s). ` +
+					`This may indicate a corrupted video file or unsupported codec. Try re-exporting the source video.`,
 			);
 		}
 	}
