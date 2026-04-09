@@ -117,10 +117,17 @@ export function shouldFailDecodeEndedEarly({
 		earlyDecodeThreshold,
 	);
 	const metadataTailTolerance = Math.min(METADATA_TAIL_TOLERANCE_SEC, earlyDecodeThreshold);
-	const decodedNearStreamEnd =
-		Math.abs(lastDecodedFrameSec - streamDurationSec) <= streamDurationMatchTolerance;
+	const streamEndGapSec = Math.abs(lastDecodedFrameSec - streamDurationSec);
+	const decodedNearStreamEnd = streamEndGapSec <= streamDurationMatchTolerance;
+	// Enforce combined gap cap: the sum of per-part gaps must not exceed the dynamic threshold.
+	const totalDecodeGap = streamEndGapSec + metadataTailSec;
 
-	if (decodedNearStreamEnd && metadataTailSec > 0 && metadataTailSec <= metadataTailTolerance) {
+	if (
+		decodedNearStreamEnd &&
+		metadataTailSec > 0 &&
+		metadataTailSec <= metadataTailTolerance &&
+		totalDecodeGap <= earlyDecodeThreshold
+	) {
 		return false;
 	}
 
