@@ -64,13 +64,17 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 		} catch {
 			// localStorage may be unavailable
 		}
-		document.documentElement.lang = newLocale as string;
+		const localeStr = newLocale as string;
+		document.documentElement.lang = localeStr;
+		document.documentElement.dir = localeStr.startsWith("ar") ? "rtl" : "ltr";
 		// Notify Electron main process
-		window.electronAPI?.setLocale?.(newLocale as string);
+		window.electronAPI?.setLocale?.(localeStr);
 	}, []);
 
 	useEffect(() => {
-		document.documentElement.lang = locale as string;
+		const localeStr = locale as string;
+		document.documentElement.lang = localeStr;
+		document.documentElement.dir = localeStr.startsWith("ar") ? "rtl" : "ltr";
 	}, [locale]);
 
 	const t = useCallback(

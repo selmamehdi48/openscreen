@@ -502,9 +502,12 @@ export class StreamingVideoDecoder {
 		) {
 			const decodedAtLabel =
 				lastDecodedFrameSec === null ? "no decoded frame" : `${lastDecodedFrameSec.toFixed(3)}s`;
-			const gapSec = lastDecodedFrameSec !== null ? requiredEndSec - lastDecodedFrameSec : 0;
+			const gapStr =
+				lastDecodedFrameSec === null
+					? `unknown (full duration: ${requiredEndSec.toFixed(3)}s)`
+					: `${(requiredEndSec - lastDecodedFrameSec).toFixed(3)}s`;
 			throw new Error(
-				`Video decode ended early at ${decodedAtLabel} (needed ${requiredEndSec.toFixed(3)}s, gap: ${gapSec.toFixed(3)}s). ` +
+				`Video decode ended early at ${decodedAtLabel} (needed ${requiredEndSec.toFixed(3)}s, gap: ${gapStr}). ` +
 					`This may indicate a corrupted video file or unsupported codec. Try re-exporting the source video.`,
 			);
 		}
