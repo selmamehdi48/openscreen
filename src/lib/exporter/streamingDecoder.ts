@@ -71,18 +71,23 @@ type EarlyDecodeEndCheck = {
 const EARLY_DECODE_END_THRESHOLD_ABS_CAP_SEC = 2.5;
 // Relative fraction of duration (catches truncation in short clips)
 const EARLY_DECODE_END_THRESHOLD_RELATIVE_FACTOR = 0.15; // 15% of duration
+// Floor ensures ultra-short clips still get a meaningful minimum tolerance (~8 frames at 30fps)
+const EARLY_DECODE_END_THRESHOLD_MIN_SEC = 0.25;
 const METADATA_TAIL_TOLERANCE_SEC = 2.5;
 const STREAM_DURATION_MATCH_TOLERANCE_SEC = 0.5;
 
 /**
  * Compute a dynamic threshold for early decode termination.
  * For short videos, use a relative fraction; for long videos, cap at an absolute value.
- * Example: 5s video uses min(2.5, 0.75) = 0.75s threshold
- *          30s video uses min(2.5, 4.5) = 2.5s threshold
+ * A floor prevents the threshold from becoming too small for ultra-short clips.
+ * Example: 0.2s video uses min(2.5, max(0.25, 0.03)) = 0.25s threshold
+ *          5s  video uses min(2.5, max(0.25, 0.75)) = 0.75s threshold
+ *          30s video uses min(2.5, max(0.25, 4.5))  = 2.5s threshold
  */
 function computeEarlyDecodeThreshold(durationSec: number): number {
 	const relativeThreshold = durationSec * EARLY_DECODE_END_THRESHOLD_RELATIVE_FACTOR;
-	return Math.min(EARLY_DECODE_END_THRESHOLD_ABS_CAP_SEC, relativeThreshold);
+	const clamped = Math.max(EARLY_DECODE_END_THRESHOLD_MIN_SEC, relativeThreshold);
+	return Math.min(EARLY_DECODE_END_THRESHOLD_ABS_CAP_SEC, clamped);
 }
 
 export function shouldFailDecodeEndedEarly({
