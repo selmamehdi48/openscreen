@@ -34,15 +34,15 @@ function interpolate(str: string, vars?: Record<string, string | number>): strin
 }
 
 export function getMessages(locale: Locale, namespace: I18nNamespace): MessageMap {
-	return messages[locale]?.[namespace] ?? {};
+	return messages[locale as string]?.[namespace] ?? {};
 }
 
 export function getLocaleName(locale: Locale): string {
-	return getMessageValue(messages[locale]?.common, "locale.name") ?? locale;
+	return getMessageValue(messages[locale as string]?.common, "locale.name") ?? (locale as string);
 }
 
 export function getLocaleShort(locale: Locale): string {
-	return getMessageValue(messages[locale]?.common, "locale.short") ?? locale;
+	return getMessageValue(messages[locale as string]?.common, "locale.short") ?? (locale as string);
 }
 
 export function translate(
@@ -52,8 +52,8 @@ export function translate(
 	vars?: Record<string, string | number>,
 ): string {
 	const value =
-		getMessageValue(messages[locale]?.[namespace], key) ??
-		getMessageValue(messages[DEFAULT_LOCALE]?.[namespace], key);
+		getMessageValue(messages[locale as string]?.[namespace], key) ??
+		getMessageValue(messages[DEFAULT_LOCALE as string]?.[namespace], key);
 
 	if (value == null) return `${namespace}.${key}`;
 	return interpolate(value, vars);

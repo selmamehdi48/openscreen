@@ -40,8 +40,8 @@ export function useScopedT(namespace: I18nNamespace) {
 	);
 }
 
-function isSupportedLocale(value: string): value is Locale {
-	return (SUPPORTED_LOCALES as readonly string[]).includes(value);
+function isSupportedLocale(value: string | undefined): value is Locale {
+	return value !== undefined && (SUPPORTED_LOCALES as readonly string[]).includes(value);
 }
 
 function getInitialLocale(): Locale {
@@ -60,17 +60,17 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 	const setLocale = useCallback((newLocale: Locale) => {
 		setLocaleState(newLocale);
 		try {
-			localStorage.setItem(LOCALE_STORAGE_KEY, newLocale);
+			localStorage.setItem(LOCALE_STORAGE_KEY, newLocale as string);
 		} catch {
 			// localStorage may be unavailable
 		}
-		document.documentElement.lang = newLocale;
+		document.documentElement.lang = newLocale as string;
 		// Notify Electron main process
-		window.electronAPI?.setLocale?.(newLocale);
+		window.electronAPI?.setLocale?.(newLocale as string);
 	}, []);
 
 	useEffect(() => {
-		document.documentElement.lang = locale;
+		document.documentElement.lang = locale as string;
 	}, [locale]);
 
 	const t = useCallback(
