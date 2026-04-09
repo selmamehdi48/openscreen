@@ -110,14 +110,17 @@ export function shouldFailDecodeEndedEarly({
 	}
 
 	const metadataTailSec = requiredEndSec - streamDurationSec;
+	// Clamp fallback tolerances to dynamic threshold to ensure consistent behavior for short clips.
+	// Short videos get stricter constraints; long videos use the fixed tolerance as baseline.
+	const streamDurationMatchTolerance = Math.min(
+		STREAM_DURATION_MATCH_TOLERANCE_SEC,
+		earlyDecodeThreshold,
+	);
+	const metadataTailTolerance = Math.min(METADATA_TAIL_TOLERANCE_SEC, earlyDecodeThreshold);
 	const decodedNearStreamEnd =
-		Math.abs(lastDecodedFrameSec - streamDurationSec) <= STREAM_DURATION_MATCH_TOLERANCE_SEC;
+		Math.abs(lastDecodedFrameSec - streamDurationSec) <= streamDurationMatchTolerance;
 
-	if (
-		decodedNearStreamEnd &&
-		metadataTailSec > 0 &&
-		metadataTailSec <= METADATA_TAIL_TOLERANCE_SEC
-	) {
+	if (decodedNearStreamEnd && metadataTailSec > 0 && metadataTailSec <= metadataTailTolerance) {
 		return false;
 	}
 
