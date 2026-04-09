@@ -1447,6 +1447,10 @@ export default function VideoEditor() {
 			return;
 		}
 
+		// Flush pending state changes (e.g., wallpaper, borderRadius, shadowIntensity)
+		// to ensure export uses current settings, not stale closure values.
+		commitState();
+
 		// Build export settings from current state
 		const sourceWidth = video.videoWidth || 1920;
 		const sourceHeight = video.videoHeight || 1080;
