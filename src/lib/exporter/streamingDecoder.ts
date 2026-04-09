@@ -67,9 +67,23 @@ type EarlyDecodeEndCheck = {
 	streamDurationSec?: number;
 };
 
-const EARLY_DECODE_END_THRESHOLD_SEC = 2.5;
+// Absolute cap on tolerance (handles metadata padding for large files)
+const EARLY_DECODE_END_THRESHOLD_ABS_CAP_SEC = 2.5;
+// Relative fraction of duration (catches truncation in short clips)
+const EARLY_DECODE_END_THRESHOLD_RELATIVE_FACTOR = 0.15; // 15% of duration
 const METADATA_TAIL_TOLERANCE_SEC = 2.5;
 const STREAM_DURATION_MATCH_TOLERANCE_SEC = 0.5;
+
+/**
+ * Compute a dynamic threshold for early decode termination.
+ * For short videos, use a relative fraction; for long videos, cap at an absolute value.
+ * Example: 5s video uses min(2.5, 0.75) = 0.75s threshold
+ *          30s video uses min(2.5, 4.5) = 2.5s threshold
+ */
+function computeEarlyDecodeThreshold(durationSec: number): number {
+	const relativeThreshold = durationSec * EARLY_DECODE_END_THRESHOLD_RELATIVE_FACTOR;
+	return Math.min(EARLY_DECODE_END_THRESHOLD_ABS_CAP_SEC, relativeThreshold);
+}
 
 export function shouldFailDecodeEndedEarly({
 	cancelled,
@@ -86,7 +100,8 @@ export function shouldFailDecodeEndedEarly({
 	}
 
 	const decodeGapSec = requiredEndSec - lastDecodedFrameSec;
-	if (decodeGapSec <= EARLY_DECODE_END_THRESHOLD_SEC) {
+	const earlyDecodeThreshold = computeEarlyDecodeThreshold(requiredEndSec);
+	if (decodeGapSec <= earlyDecodeThreshold) {
 		return false;
 	}
 
@@ -506,8 +521,9 @@ export class StreamingVideoDecoder {
 				lastDecodedFrameSec === null
 					? `unknown (full duration: ${requiredEndSec.toFixed(3)}s)`
 					: `${(requiredEndSec - lastDecodedFrameSec).toFixed(3)}s`;
+			const threshold = computeEarlyDecodeThreshold(requiredEndSec);
 			throw new Error(
-				`Video decode ended early at ${decodedAtLabel} (needed ${requiredEndSec.toFixed(3)}s, gap: ${gapStr}). ` +
+				`Video decode ended early at ${decodedAtLabel} (needed ${requiredEndSec.toFixed(3)}s, gap: ${gapStr}, threshold: ${threshold.toFixed(3)}s). ` +
 					`This may indicate a corrupted video file or unsupported codec. Try re-exporting the source video.`,
 			);
 		}
